@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: registry-service
+spec:
+  selector:
+    app: registry
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    nodePort: your_node_port # get this from kubectl get svc (registry name, in my case was registry-service) registry-service , check PORT column its will be 5000/YOUR_PORT/TCP
+  type: NodePort
